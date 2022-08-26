@@ -449,7 +449,7 @@ def fed_info(update: Update, context: CallbackContext):
     chat = update.effective_chat
     info = sql.get_fed_info(fed_id)
 
-    text = "<b>Federation Information:</b>" + f"\nFedID: <code>{fed_id}</code>"
+    text = f"<b>Federation Information:</b>\nFedID: <code>{fed_id}</code>"
     text += f"\nName: {info['fname']}"
     text += f"\nCreator: {mention_html(owner.id, owner_name)}"
     text += f"\nAll Admins: <code>{TotalAdminFed}</code>"

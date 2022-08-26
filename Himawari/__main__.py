@@ -542,11 +542,8 @@ def settings_button(update: Update, context: CallbackContext):
             chat_id = mod_match[1]
             module = mod_match[2]
             chat = bot.get_chat(chat_id)
-            text = f"*{escape_markdown(chat.title)}* has the following settings for the *{CHAT_SETTINGS[module].__mod_name__}* module:\n\n" + CHAT_SETTINGS[
-                module
-            ].__chat_settings__(
-                chat_id, user.id
-            )
+            text = f"*{escape_markdown(chat.title)}* has the following settings for the *{CHAT_SETTINGS[module].__mod_name__}* module:\n\n{CHAT_SETTINGS[module].__chat_settings__(chat_id, user.id)}"
+
 
             query.message.reply_text(
                 text=text,

@@ -43,7 +43,7 @@ close_btn = "Close ❌"
 def shorten(description, info="anilist.co"):
     msg = ""
     if len(description) > 700:
-        description = description[:500] + "...."
+        description = f"{description[:500]}...."
         msg += f"\n*Description*:\n{description}[Read More]({info})"
     else:
         msg += f"\n*Description*:\n{description}"
