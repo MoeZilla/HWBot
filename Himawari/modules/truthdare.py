@@ -38,7 +38,7 @@ async def truth(event):
   gae = requests.get("https://api.truthordarebot.xyz/v1/truth").json()
   truth = gae["question"] 
   BRAH = "{}"
-  
+
   await event.reply(BRAH.format(truth)) 
   
   # thanks stb gae

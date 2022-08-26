@@ -105,10 +105,9 @@ def sed(update: Update, context: CallbackContext):
                 return
             if check and check.group(0).lower() == to_fix.lower():
                 update.effective_message.reply_to_message.reply_text(
-                    "Hey everyone, {} is trying to make "
-                    "me say stuff I don't wanna "
-                    "say!".format(update.effective_user.first_name),
+                    f"Hey everyone, {update.effective_user.first_name} is trying to make me say stuff I don't wanna say!"
                 )
+
                 return
             if infinite_loop_check(repl):
                 update.effective_message.reply_text(
@@ -162,7 +161,11 @@ If you want to use these characters, make sure you escape them!
 __mod_name__ = "Regex"
 
 SED_HANDLER = DisableAbleMessageHandler(
-    Filters.regex(r"s([{}]).*?\1.*".format("".join(DELIMITERS))), sed, friendly="sed", run_async=True,
+    Filters.regex(f's([{"".join(DELIMITERS)}]).*?\1.*'),
+    sed,
+    friendly="sed",
+    run_async=True,
 )
+
 
 dispatcher.add_handler(SED_HANDLER)
